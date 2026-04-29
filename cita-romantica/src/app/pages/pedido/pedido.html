@@ -1,58 +1,59 @@
-<div class="wizard-shell">
+<div class="wizard-page">  
+  <div class="wizard-shell">
 
-  <!-- barra superior -->
-  <div class="wizard-header">
+    <!-- barra superior -->
+    <div class="wizard-header">
 
-    <span class="step-counter">
-      Pas {{ step() }} de 4
-    </span>
+      <span class="step-counter">
+        Pas {{ step() }} de 4
+      </span>
 
-    <div class="progress-bar">
-      <div class="fill" [style.width.%]="((step()) / 4) * 100"></div>
+      <div class="progress-bar">
+        <div class="fill" [style.width.%]="((step()) / 4) * 100"></div>
+      </div>
+
+      <h2 *ngIf="step() === WizardStep.PRIMER_PLATO">Escull el teu primer plat</h2>
+      <h2 *ngIf="step() === WizardStep.COMPLEMENTOS">Selecciona els complements</h2>
+      <h2 *ngIf="step() === WizardStep.POSTRES">Tria el postre perfecte</h2>
+
+      <p *ngIf="step() !== WizardStep.RESUMEN">
+        Cada elecció forma part de la teva experiència
+      </p>
+
     </div>
 
-    <h2 *ngIf="step() === WizardStep.PRIMER_PLATO">Escull el teu primer plat</h2>
-    <h2 *ngIf="step() === WizardStep.COMPLEMENTOS">Selecciona els complements</h2>
-    <h2 *ngIf="step() === WizardStep.POSTRES">Tria el postre perfecte</h2>
-    <h2 *ngIf="step() === WizardStep.RESUMEN">Revisa la teva selecció</h2>
+    <!-- contenido dinámico -->
+    <div class="wizard-body">
 
-    <p *ngIf="step() !== WizardStep.RESUMEN">
-      Cada elecció forma part de la teva experiència
-    </p>
+      <app-primer-plato *ngIf="step() === WizardStep.PRIMER_PLATO"></app-primer-plato>
 
-  </div>
+      <app-complementos *ngIf="step() === WizardStep.COMPLEMENTOS"></app-complementos>
 
-  <!-- contenido dinámico -->
-  <div class="wizard-body">
+      <app-postres *ngIf="step() === WizardStep.POSTRES"></app-postres>
 
-    <app-primer-plato *ngIf="step() === WizardStep.PRIMER_PLATO"></app-primer-plato>
+      <app-resumen *ngIf="step() === WizardStep.RESUMEN"></app-resumen>
 
-    <app-complementos *ngIf="step() === WizardStep.COMPLEMENTOS"></app-complementos>
+    </div>
 
-    <app-postres *ngIf="step() === WizardStep.POSTRES"></app-postres>
+    <!-- navegación -->
+    <div class="nav">
 
-    <app-resumen *ngIf="step() === WizardStep.RESUMEN"></app-resumen>
+      <button
+        class="circle-btn secondary"
+        (click)="back()"
+        [disabled]="step() === WizardStep.PRIMER_PLATO">
+        ←
+      </button>
 
-  </div>
+      <button
+        class="circle-btn primary"
+        (click)="next()"
+        *ngIf="step() !== WizardStep.RESUMEN"
+        [disabled]="!state.canGoNext()">
+        →
+      </button>
 
-  <!-- navegación -->
-  <div class="nav">
-
-    <button
-      class="circle-btn secondary"
-      (click)="back()"
-      [disabled]="step() === WizardStep.PRIMER_PLATO">
-      ←
-    </button>
-
-    <button
-      class="circle-btn primary"
-      (click)="next()"
-      *ngIf="step() !== WizardStep.RESUMEN"
-      [disabled]="!state.canGoNext()">
-      →
-    </button>
+    </div>
 
   </div>
-
 </div>

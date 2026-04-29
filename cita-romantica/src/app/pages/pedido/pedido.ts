@@ -9,6 +9,9 @@ import { Complementos } from './steps/complementos/complementos';
 import { Postres } from './steps/postres/postres';
 import { Resumen } from './steps/resumen/resumen';
 
+import { inject } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+
 @Component({
   selector: 'app-pedido',
   standalone: true,
@@ -23,6 +26,7 @@ import { Resumen } from './steps/resumen/resumen';
   styleUrl: './pedido.scss',
 })
 export class Pedido {
+  private viewport = inject(ViewportScroller);
 
   constructor(public state: PedidoStateService) {}
 
@@ -35,9 +39,10 @@ export class Pedido {
 
   next() {
     this.state.nextStep();
-  }
+    window.scrollTo({ top: 0, behavior: 'smooth' });  }
 
   back() {
     this.state.prevStep();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

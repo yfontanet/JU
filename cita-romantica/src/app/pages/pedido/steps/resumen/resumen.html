@@ -1,38 +1,38 @@
-<div class="resume-container">
+<div class="resumen-container">
+    <div class="card">
 
-  <div class="overlay"></div>
+        <div class="card-content">
 
-  <div class="card">
+            <h2>RESUM DEL MENÚ</h2>
 
-    <h2>Resum de la teva cita ❤️</h2>
+            <div class="section">
+            <h3>Primer plat</h3>
+            <p>{{ format(state.pedido().primerPlato) }}</p>
+            </div>
 
-    <div class="section">
-      <h3>Primer plat</h3>
-      <p>{{ format(state.pedido().primerPlato) }}</p>
+            <div class="section">
+            <h3>Complements</h3>
+            <ul>
+                <li *ngFor="let c of state.pedido().complementos">
+                {{ format(c) }}
+                </li>
+            </ul>
+            </div>
+
+            <div class="section">
+            <h3>Postres</h3>
+            <ul>
+                <li *ngFor="let p of state.pedido().postres">
+                {{ format(p) }}
+                </li>
+            </ul>
+            </div>
+
+            <button class="confirm" (click)="confirmar()">
+            Confirmar pedido
+            </button>
+
+        </div>
+
     </div>
-
-    <div class="section">
-      <h3>Complements</h3>
-      <ul>
-        <li *ngFor="let c of state.pedido().complementos">
-          {{ format(c) }}
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h3>Postres</h3>
-      <ul>
-        <li *ngFor="let p of state.pedido().postres">
-          {{ format(p) }}
-        </li>
-      </ul>
-    </div>
-
-    <button class="confirm" (click)="confirmar()">
-      Confirmar pedido ❤️
-    </button>
-
-  </div>
-
 </div>

@@ -1,5 +1,12 @@
+.wizard-page {
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+}
+
 .wizard-shell {
-  max-width: 950px;
+  max-width: 900px;
   margin: 60px auto;
   padding: 35px;
 
