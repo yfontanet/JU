@@ -1,0 +1,14 @@
+<h2>Postres 🍰</h2>
+
+<div class="grid">
+
+  <div
+    class="card"
+    *ngFor="let item of opciones"
+    (click)="select(item)"
+    [class.selected]="state.pedido().postre === item"
+  >
+    {{ item }}
+  </div>
+
+</div>

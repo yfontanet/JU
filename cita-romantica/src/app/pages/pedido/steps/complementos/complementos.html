@@ -1,0 +1,14 @@
+<h2>Complements 🧀</h2>
+
+<div class="grid">
+
+  <div
+    class="card"
+    *ngFor="let item of opciones"
+    (click)="toggle(item)"
+    [class.selected]="state.pedido().complementos.includes(item)"
+  >
+    {{ item }}
+  </div>
+
+</div>

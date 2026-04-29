@@ -1,0 +1,45 @@
+<div class="wizard">
+
+    <div class="progress-bar">
+    <div class="fill" [style.width.%]="(step() / 4) * 100"></div>
+    </div>
+
+  <!-- 🔹 PASO 1: PRIMER PLATO -->
+  <app-primer-plato
+    *ngIf="step() === WizardStep.PRIMER_PLATO">
+  </app-primer-plato>
+
+  <!-- 🔹 PASO 2: COMPLEMENTOS -->
+  <app-complementos
+    *ngIf="step() === WizardStep.COMPLEMENTOS">
+  </app-complementos>
+
+  <!-- 🔹 PASO 3: POSTRES -->
+  <app-postres
+    *ngIf="step() === WizardStep.POSTRES">
+  </app-postres>
+
+  <!-- 🔹 PASO 4: RESUMEN -->
+  <app-resumen
+    *ngIf="step() === WizardStep.RESUMEN">
+  </app-resumen>
+
+  <!-- 🔘 NAVEGACIÓN -->
+  <div class="nav">
+
+    <button
+      (click)="back()"
+      [disabled]="step() === WizardStep.PRIMER_PLATO">
+      Atrás
+    </button>
+
+    <button
+      (click)="next()"
+      *ngIf="step() !== WizardStep.RESUMEN"
+      [disabled]="!state.canGoNext()">
+      Siguiente
+    </button>
+
+  </div>
+
+</div>

@@ -1,0 +1,14 @@
+<h2>Primer plat 🍽️</h2>
+
+<div class="grid">
+
+  <div
+    class="card"
+    *ngFor="let item of opciones"
+    (click)="select(item.value)"
+    [class.selected]="state.pedido().primerPlato === item.value"
+  >
+    <h3>{{ item.name }}</h3>
+  </div>
+
+</div>

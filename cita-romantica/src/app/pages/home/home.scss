@@ -1,0 +1,58 @@
+.hero {
+  position: relative;
+  height: 100vh;
+
+  background-image: url("/assets/images/background/home(5).jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* overlay más elegante (vino oscuro suave) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 10, 15, 0.55);
+}
+
+/* contenido */
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #f5efe6;
+}
+
+/* tipografía */
+h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 18px;
+  color: #e7ddd2;
+  margin-bottom: 25px;
+}
+
+/* botón */
+button {
+  background: var(--primary);
+  color: #f5efe6;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: var(--primary-soft);
+}

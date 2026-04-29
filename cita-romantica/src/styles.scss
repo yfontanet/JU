@@ -1,0 +1,108 @@
+:root {
+
+  /* 🧱 base cálida */
+  --bg: #f5efe6;        /* beige suave */
+  --surface: #ffffff;   /* blanco cálido */
+
+  /* ✍️ texto */
+  --text: #2a1f1f;      /* casi negro cálido */
+  --muted: #6b5b5b;     /* gris cálido */
+
+  /* 🍷 color principal (vino elegante) */
+  --primary: #6b1f2b;   /* vino oscuro */
+  --primary-soft: #8a2a3a;
+
+  /* ✨ acento dorado suave */
+  --accent: #b89b6a;
+
+  /* 🧱 bordes */
+  --border: #e7ddd2;
+
+  /* ✅ estados */
+  --selected: #6b1f2b;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  color: var(--primary);
+}
+
+.wizard {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.footer {
+  color: #f5f5f5;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+}
+
+button:hover {
+  background: var(--primary-soft);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.card.selected {
+  border: 2px solid var(--primary);
+  background: #f8f2f3;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --primary: #7a2a35;
+  }
+}
+
+.progress-bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-bar .fill {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
