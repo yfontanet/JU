@@ -3,7 +3,7 @@ import { Injectable, signal } from '@angular/core';
 export interface Pedido {
   primerPlato: string | null;
   complementos: string[];
-  postre: string | null;
+  postres: string[];
 }
 
 export enum WizardStep {
@@ -18,17 +18,17 @@ export enum WizardStep {
 })
 export class PedidoStateService {
 
-  // 🧠 estado pedido
+  // 🧠 estado general
   pedido = signal<Pedido>({
     primerPlato: null,
     complementos: [],
-    postre: null,
+    postres: [],
   });
 
   // 🧭 paso actual
   step = signal<WizardStep>(WizardStep.PRIMER_PLATO);
 
-  // 👉 navegación
+  // navegación
   nextStep() {
     this.step.update(s => Math.min(s + 1, WizardStep.RESUMEN));
   }
@@ -41,29 +41,73 @@ export class PedidoStateService {
     this.step.set(step);
   }
 
-  // 🍽️ acciones
+  // =========================
+  // PRIMER PLATO
+  // =========================
   setPrimerPlato(value: string) {
-    this.pedido.update(p => ({ ...p, primerPlato: value }));
+    this.pedido.update(p => ({
+      ...p,
+      primerPlato: value
+    }));
   }
 
+  // =========================
+  // COMPLEMENTOS
+  // =========================
   toggleComplemento(value: string) {
     this.pedido.update(p => {
-      const exists = p.complementos.includes(value);
+
+      let nuevos = [...p.complementos];
+
+      if (value === 'sense-complements') {
+        nuevos = ['sense-complements'];
+      } else {
+        nuevos = nuevos.filter(x => x !== 'sense-complements');
+
+        if (nuevos.includes(value)) {
+          nuevos = nuevos.filter(x => x !== value);
+        } else {
+          nuevos.push(value);
+        }
+      }
 
       return {
         ...p,
-        complementos: exists
-          ? p.complementos.filter(x => x !== value)
-          : [...p.complementos, value],
+        complementos: nuevos
       };
     });
   }
 
-  setPostre(value: string) {
-    this.pedido.update(p => ({ ...p, postre: value }));
+  // =========================
+  // POSTRES
+  // =========================
+  togglePostre(value: string) {
+    this.pedido.update(p => {
+
+      let nuevos = [...p.postres];
+
+      if (value === 'sense-postre') {
+        nuevos = ['sense-postre'];
+      } else {
+        nuevos = nuevos.filter(x => x !== 'sense-postre');
+
+        if (nuevos.includes(value)) {
+          nuevos = nuevos.filter(x => x !== value);
+        } else {
+          nuevos.push(value);
+        }
+      }
+
+      return {
+        ...p,
+        postres: nuevos
+      };
+    });
   }
 
-  // ✅ validación por paso
+  // =========================
+  // VALIDACIONES
+  // =========================
   canGoNext(): boolean {
     const p = this.pedido();
     const s = this.step();
@@ -76,7 +120,7 @@ export class PedidoStateService {
         return p.complementos.length > 0;
 
       case WizardStep.POSTRES:
-        return !!p.postre;
+        return p.postres.length > 0;
 
       default:
         return true;

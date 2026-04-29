@@ -1,8 +1,22 @@
 <nav class="navbar">
-  <div class="logo">Cita Romàntica</div>
+
+  <div class="logo" routerLink="/">
+    <img src="/assets/images/icon/icon(3).png" alt="logo">
+  </div>
 
   <div class="links">
-    <a routerLink="/">Inici</a>
-    <a routerLink="/pedido">Començar</a>
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">
+      Inici
+    </a>
+
+    <a
+      routerLink="/pedido"
+      routerLinkActive="active">
+      Començar
+    </a>
   </div>
+
 </nav>

@@ -1,14 +1,24 @@
-<h2>Primer plat 🍽️</h2>
-
-<div class="grid">
+<div class="food-grid">
 
   <div
-    class="card"
+    class="food-card"
     *ngFor="let item of opciones"
-    (click)="select(item.value)"
     [class.selected]="state.pedido().primerPlato === item.value"
+    [class.open]="openedCard === item.value"
+    (click)="toggleCard(item.value)"
   >
-    <h3>{{ item.name }}</h3>
+
+    <img [src]="item.image" [alt]="item.name">
+
+    <div class="info">
+      <h3>{{ item.name }}</h3>
+
+      <div class="ingredients" *ngIf="openedCard === item.value">
+        <p>{{ item.ingredients }}</p>
+        <span class="tap-select">Torna a tocar per seleccionar</span>
+      </div>
+    </div>
+
   </div>
 
 </div>

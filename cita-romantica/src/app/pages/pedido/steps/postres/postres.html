@@ -1,14 +1,18 @@
-<h2>Postres 🍰</h2>
-
-<div class="grid">
+<div class="food-grid">
 
   <div
-    class="card"
+    class="food-card"
     *ngFor="let item of opciones"
-    (click)="select(item)"
-    [class.selected]="state.pedido().postre === item"
+    (click)="toggle(item.value)"
+    [class.selected]="isSelected(item.value)"
   >
-    {{ item }}
+
+    <img [src]="item.image" [alt]="item.name">
+
+    <div class="info">
+      <h3>{{ item.name }}</h3>
+    </div>
+
   </div>
 
 </div>
