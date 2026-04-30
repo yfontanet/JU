@@ -12,6 +12,8 @@ import { Resumen } from './steps/resumen/resumen';
 import { inject } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-pedido',
   standalone: true,
@@ -25,10 +27,11 @@ import { ViewportScroller } from '@angular/common';
   templateUrl: './pedido.html',
   styleUrl: './pedido.scss',
 })
+
 export class Pedido {
   private viewport = inject(ViewportScroller);
 
-  constructor(public state: PedidoStateService) {}
+  constructor(public state: PedidoStateService, private router: Router) {}
 
   // ✔ getter correcto (evita error de inicialización)
   get step() {
@@ -51,5 +54,10 @@ export class Pedido {
     requestAnimationFrame(() => {
       this.viewport.scrollToPosition([0, 0]);
     });
+  }
+
+  goHome() {
+    this.router.navigate(['/']);
+    this.state.confirmed.set(false);
   }
 }
