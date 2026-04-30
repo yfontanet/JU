@@ -19,37 +19,37 @@ export class PrimerPlato {
     {
       name: 'Arròs amb pollastre',
       value: 'arros',
-      image: 'assets/images/primers/arrozpollo.jpg',
+      image: '/assets/images/primers/arrozpollo.jpg',
       ingredients: 'Arròs Basmati, Pit de Pollastre, Salsa Teriyaki, Sèsam'
     },
     {
       name: 'Caccio e pepe',
       value: 'caccio',
-      image: 'assets/images/primers/caccioepepe.jpg',
+      image: '/assets/images/primers/caccioepepe.jpg',
       ingredients: 'Rigatoni Gragnano, Pecorino Romano, Pebre Negra'
     },
     {
       name: 'Gnocchis amb mel',
       value: 'gnocchis',
-      image: 'assets/images/primers/gnocchis.jpg',
+      image: '/assets/images/primers/gnocchis.jpg',
       ingredients: 'Gnocchis, Ceba, Crema de Llet, Tires de Bacó, Formatge de cabra, Mel'
     },
     {
       name: 'Parmigiana d’albergínia',
       value: 'parmigiana',
-      image: 'assets/images/primers/parmigiana.jpg',
+      image: '/assets/images/primers/parmigiana.jpg',
       ingredients: 'Albergínia, Tomàquet Fregit, Mozzarella, Parmesà, Espècies'
     },
     {
       name: 'Pasta d’albergínia',
       value: 'pasta',
-      image: 'assets/images/primers/pasta.jpg',
+      image: '/assets/images/primers/pasta.jpg',
       ingredients: 'Tortiglioni Gragnano, Albergínia, Tomàquet, Vi Blanc, Salsa de carn, Espècies'
     },
     {
       name: 'Salmó amb arròs',
       value: 'salmo',
-      image: 'assets/images/primers/salmonarroz.jpg',
+      image: '/assets/images/primers/salmonarroz.jpg',
       ingredients: 'Arròs Basmati, Salmó, Salsa Teriyaki, Maionesa japonesa Kewpie, Sèsam'
     },
   ];
