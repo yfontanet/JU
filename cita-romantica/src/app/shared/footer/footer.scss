@@ -1,0 +1,47 @@
+.footer {
+  position: relative;
+  height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background-image: url("/assets/images/background/footer.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+p {
+  color: #7a2a35;
+  font-style: italic;
+}
+
+/* 🌟 CAPA PRINCIPAL: TRANSICIÓN DESDE HOME */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    to top,
+    var(--bg) 0%,                 /* igual que home */
+    rgba(245, 239, 230, 0.85) 20%,
+    rgba(30, 10, 15, 0.45) 75%,
+    rgba(30, 10, 15, 0.55)
+  );
+}
+
+/* contenido */
+.content {
+  position: relative;
+  z-index: 2;
+
+  color: #f5efe6;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}

@@ -1,0 +1,18 @@
+<div class="food-grid">
+
+  <div
+    class="food-card"
+    *ngFor="let item of opciones"
+    (click)="toggle(item.value)"
+    [class.selected]="isSelected(item.value)"
+  >
+
+    <img [src]="item.image" [alt]="item.name">
+
+    <div class="info">
+      <h3>{{ item.name }}</h3>
+    </div>
+
+  </div>
+
+</div>
