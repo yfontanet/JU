@@ -51,6 +51,6 @@ export class Resumen {
   }
 
   confirmar() {
-    alert('Pedido enviado ❤️');
+    alert('Fet per una experiència especial!');
   }
 }

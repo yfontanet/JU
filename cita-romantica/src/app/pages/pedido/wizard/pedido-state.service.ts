@@ -126,4 +126,10 @@ export class PedidoStateService {
         return true;
     }
   }
+
+  confirmed = signal(false);
+
+  confirmarPedido() {
+    this.confirmed.set(true);
+  }
 }

@@ -39,10 +39,17 @@ export class Pedido {
 
   next() {
     this.state.nextStep();
-    window.scrollTo({ top: 0, behavior: 'smooth' });  }
+
+    requestAnimationFrame(() => {
+      this.viewport.scrollToPosition([0, 0]);
+    });
+  }
 
   back() {
     this.state.prevStep();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    requestAnimationFrame(() => {
+      this.viewport.scrollToPosition([0, 0]);
+    });
   }
 }
