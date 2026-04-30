@@ -17,47 +17,47 @@ export class Complementos {
     {
       name: 'Camembert',
       value: 'camembert',
-      image: '/assets/images/complements/camembert.jpeg'
+      image: 'assets/images/complements/camembert.jpeg'
     },
     {
       name: 'Crema Camembert',
       value: 'crema-camembert',
-      image: '/assets/images/complements/cremacamembert.jpeg'
+      image: 'assets/images/complements/cremacamembert.jpeg'
     },
     {
       name: 'Crema Brie',
       value: 'crema-brie',
-      image: '/assets/images/complements/cremabrie.jpeg'
+      image: 'assets/images/complements/cremabrie.jpeg'
     },
     {
       name: 'Tequeños',
       value: 'tequenos',
-      image: '/assets/images/complements/tequenos.jpeg'
+      image: 'assets/images/complements/tequenos.jpeg'
     },
     {
       name: 'Bastons de Pastanaga',
       value: 'pastanaga',
-      image: '/assets/images/complements/pastanaga.jpeg'
+      image: 'assets/images/complements/pastanaga.jpeg'
     },
     {
       name: 'Amanida de Tomàquet',
       value: 'amanida',
-      image: '/assets/images/complements/amanida.jpeg'
+      image: 'assets/images/complements/amanida.jpeg'
     },
     {
       name: 'Hummus',
       value: 'hummus',
-      image: '/assets/images/complements/hummus.jpg'
+      image: 'assets/images/complements/hummus.jpg'
     },
     {
       name: 'Palitos de Pa',
       value: 'palitos',
-      image: '/assets/images/complements/palitos.jpeg'
+      image: 'assets/images/complements/palitos.jpeg'
     },
     {
       name: 'Sense complements',
       value: 'sense-complements',
-      image: '/assets/images/complements/sensecomp.png'
+      image: 'assets/images/complements/sensecomp.png'
     }
   ];
 
